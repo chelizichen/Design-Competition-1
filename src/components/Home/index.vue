@@ -1,13 +1,13 @@
 <template>
     <div>
         <Head/>
-        <News/>
+        <NewsLink/>
     </div>
 </template>
 
 <script setup lang="ts">
 import Head from './components/head.vue'
-import News from './components/news.vue'
+import NewsLink from './components/NewsLink.vue'
 </script>
 
 <style>

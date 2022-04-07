@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { reactive } from "@vue/reactivity";
+import { onMounted } from "@vue/runtime-core";
 import img1 from '../../../assets/title/1.jpeg'
 import img2 from '../../../assets/title/2.jpeg'
 import img3 from '../../../assets/title/3.jpeg'
@@ -31,6 +32,10 @@ const imgUrl = reactive({
     ]
     
 })
+// onMounted(()=>{
+//     console.log(123);
+    
+// })
 </script>
 <template>
   <div>
