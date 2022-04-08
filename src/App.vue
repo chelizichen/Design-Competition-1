@@ -4,7 +4,7 @@
 <template>
   <div class="NavBar">
     <router-link to="/home" class="link" active-class="active"> 首页</router-link>
-    <router-link to="/vacate" class="link" active-class="active"> 学生中心</router-link>
+    <router-link to="/student" class="link" active-class="active"> 学生中心</router-link>
     <router-link to="/mine" class="link" active-class="active"> 个人</router-link>
   </div>
   <router-view/>

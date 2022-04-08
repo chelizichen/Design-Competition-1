@@ -1,11 +1,11 @@
 <template>
     <div>
-        <h1>hello world</h1>
+        <Head/>
     </div>
 </template>
 
 <script setup lang="ts">
-
+import Head from './components/head.vue'
 </script>
 
 <style>

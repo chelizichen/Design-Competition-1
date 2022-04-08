@@ -1,7 +1,24 @@
 <template>
-  <div>
+  <div class="outbg">
         <div v-for="item in state.store" :key="item">
-            <div v-if="item.index === state.index">{{item.title}}</div>
+            <div v-if="item.index === state.index">
+                <div class="title">{{item.title}}</div>
+                <div>{{item.author}}</div>
+                <img :src="item.pic1" alt="" style="width:100%;height:100%">
+                <div class="content">
+                    <div>{{item.content1}}</div>
+                    <div>{{item.content2}}</div>
+                    <img :src="item.pic2" alt="" style="width:100%;height:100%">
+
+                    <div>{{item.content3}}</div>
+                    <img :src="item.pic3" alt="" style="width:100%;height:100%">
+                    <div>{{item.content4}}</div>
+                    <img :src="item.pic4" alt="" style="width:100%;height:100%">
+
+                    <div>{{item.content5}}</div>
+                </div>
+
+            </div>
         </div>
         <!-- <h1>校友会2022中国大学一流专业排名发布  我校跻身中国大学一流专业排名（应用型）50强</h1>
         <h6>发布时间：2022/4/6 15:37:44 作者：管理员 浏览次数：277</h6>
@@ -22,24 +39,29 @@ let state = reactive({
     testArray:[1,2,3,4,5],
     index:Number(route.params.id)
 })
-
-// onMounted(()=>{
-//     newsStore.forEach((el)=>{
-//         if(el.index === Number(route.params.id))
-//         {
-//             console.log('匹配成功');
-//             state.store.push(el)
-//         }else
-//         {
-//             throw new Error("没有相关新闻")
-//         }
-//     })
-// })
 onUnmounted(()=>{
     console.log('test');
 })
 </script>
-<style>
+<style scoped>
+.outbg
+{
+    margin-bottom: 50px;
+}
+.content
+{
+    text-indent: 32px;
+    padding: 10px;
+}
+
+    .title
+    {
+        font-size: 20px;
+        text-align: justify;
+        font-weight: 800;
+        color: tomato;
+        margin-bottom: 10px;
+    }
     .img1
     {
         width: 100%;

@@ -1,6 +1,6 @@
 import {createRouter,createWebHistory, RouteComponent, RouteParams} from 'vue-router'
 import Home from '../components/Home/index.vue'
-import Vacate from '../components/vacate/index.vue'
+import Student from '../components/Student/index.vue'
 import Mine from '../components/mine/index.vue'
 import News from '../components/Home/components/NewsComponent.vue'
 const routes= [
@@ -13,8 +13,8 @@ const routes= [
         component:News
     },
     {
-        path:'/vacate',
-        component:Vacate
+        path:'/student',
+        component:Student
     },
     {
         path:'/mine',

@@ -68,7 +68,7 @@ const imgUrl = reactive({
 </template>
 
 
-<style>
+<style scoped>
 .bg1
 {
     background-color: rgb(246 246 246);
