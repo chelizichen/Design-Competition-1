@@ -5,7 +5,6 @@ import StutendBar from './components/navLink.vue'
 <template>
     <div>
         <StutendBar/>
-        <div>1</div>
     </div>
 </template>
 <style>

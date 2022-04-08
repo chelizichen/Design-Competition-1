@@ -1,5 +1,32 @@
 
 <script setup lang="ts">
+import { onBeforeMount, provide, reactive } from "@vue/runtime-core";
+import axios from "axios";
+const state = reactive({
+  loca:{}
+})
+const getLocation =()=>{
+    axios.get('/api/ws/location/v1/ip',{
+      params:{
+          "key":"DO6BZ-R426J-ZL4F5-KCVRY-4YVSV-2MFS5",
+      }
+    }).then(res=>{
+      state.loca = res.data.result.ad_info
+      console.log(state.loca);
+      // provide('currLocation',state.loca)
+    }).catch(err=>{
+        console.log(err);
+    })
+}
+onBeforeMount(()=>{
+  getLocation()
+})
+
+
+
+// provide('currLocation',state.loca)
+// console.log(state.loca);
+
 </script>
 <template>
   <div class="NavBar">
