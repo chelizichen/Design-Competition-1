@@ -18,8 +18,9 @@ const handleChange = (val: string[]) => {
           <router-link to="/student/resit" class="link">因病申请</router-link>
       </el-collapse-item>
       <el-collapse-item title="定位签到" name="3">
-          <router-link to="/student/signin" class="link">班级签到</router-link>
-          <router-link to="/student/resit" class="link">寝室签到</router-link>
+          <router-link to="/student/signin1" class="link">班级签到</router-link>
+          <router-link to="/student/signin2" class="link">寝室签到</router-link>
+          <router-link to="/student/signin3" class="link">定位签到</router-link>
       </el-collapse-item>
     </el-collapse>
     <router-view/>

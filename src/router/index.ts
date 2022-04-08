@@ -3,7 +3,10 @@ import Home from '../components/Home/index.vue'
 import Student from '../components/Student/index.vue'
 import Mine from '../components/mine/index.vue'
 import News from '../components/Home/components/NewsComponent.vue'
-import SignIn from '../components/Student/components/singin1.vue'
+import SignIn1 from '../components/Student/components/singin1.vue'
+import SignIn2 from '../components/Student/components/singin2.vue'
+import SignIn3 from '../components/Student/components/singin3.vue'
+
 import Vacate1 from '../components/Student/components/vacate1.vue'
 const routes= [
     {
@@ -19,8 +22,16 @@ const routes= [
         component:Student,
         children:[
             {
-                path:'/student/signin',
-                component:SignIn
+                path:'/student/signin1',
+                component:SignIn1
+            },
+            {
+                path:'/student/signin2',
+                component:SignIn2
+            },
+            {
+                path:'/student/signin3',
+                component:SignIn3
             },
             {
                 path:'/student/vacate1',
