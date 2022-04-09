@@ -15,9 +15,7 @@ const state =reactive({
 })
 const form = reactive({
   name: '',
-  region: '',
   isIll: false,
-  type: [],
   desc: '',
 })
 
@@ -36,11 +34,9 @@ const getLocation =()=>{
 const onSubmit = () => {
   console.log('submit!')
   console.log(form.name);
-  console.log(form.region);
   console.log(form.isIll);
-  console.log(form.type);
   console.log(form.desc);
-
+  console.log(state.where);
   
 }
 
@@ -56,22 +52,9 @@ onBeforeMount(()=>{
             <el-form-item label="签到人">
                 <el-input v-model="form.name" />
             </el-form-item>
-            <el-form-item label="签到地点">
-                <el-select v-model="form.region" placeholder="选择签到地点">
-                    <el-option label="居家" value="home" />
-                    <el-option label="学校" value="school" />
-                </el-select>
-            </el-form-item>
 
             <el-form-item label="有无发烧">
             <el-switch v-model="form.isIll" />
-            </el-form-item>
-            <el-form-item label="请假原因">
-            <el-checkbox-group v-model="form.type">
-                <el-checkbox label="感冒" name="type" />
-                <el-checkbox label="发烧" name="type" />
-                <el-checkbox label="其他" name="type" />
-            </el-checkbox-group>
             </el-form-item>
             <el-form-item label="备注">
             <el-input v-model="form.desc" type="textarea" />

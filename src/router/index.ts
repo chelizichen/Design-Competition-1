@@ -2,13 +2,17 @@ import {createRouter,createWebHistory, RouteComponent, RouteParams} from 'vue-ro
 import Home from '../components/Home/index.vue'
 import Student from '../components/Student/index.vue'
 import Mine from '../components/mine/index.vue'
+import Login from '../Login/login.vue'
 import News from '../components/Home/components/NewsComponent.vue'
 import SignIn1 from '../components/Student/components/singin1.vue'
 import SignIn2 from '../components/Student/components/singin2.vue'
 import SignIn3 from '../components/Student/components/singin3.vue'
-
 import Vacate1 from '../components/Student/components/vacate1.vue'
 const routes= [
+    {
+        path:'/login',
+        component:Login
+    },
     {
         path:'/home',
         component:Home,

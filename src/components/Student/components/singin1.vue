@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onBeforeMount, reactive } from "@vue/runtime-core";
 import axios from "axios";
+import { signInStore } from '../../../store/signin/index'
 
 interface whereType
 {
@@ -15,10 +16,9 @@ const state =reactive({
 })
 const form = reactive({
   name: '',
-  region: '',
   isIll: false,
-  type: [],
-  desc: '',
+  id:'',
+  class_var:''
 })
 
 const getLocation =()=>{
@@ -36,10 +36,12 @@ const getLocation =()=>{
 const onSubmit = () => {
   console.log('submit!')
   console.log(form.name);
-  console.log(form.region);
   console.log(form.isIll);
-  console.log(form.type);
-  console.log(form.desc);
+  console.log(form.class_var);
+  const {name,isIll,id,class_var} = form
+  let newObj = {name,isIll,id,class_var,type:1}
+  signInStore.push(newObj)
+
 
   
 }
@@ -56,26 +58,17 @@ onBeforeMount(()=>{
             <el-form-item label="签到人">
                 <el-input v-model="form.name" />
             </el-form-item>
-            <el-form-item label="签到地点">
-                <el-select v-model="form.region" placeholder="选择签到地点">
-                    <el-option label="居家" value="home" />
-                    <el-option label="学校" value="school" />
-                </el-select>
-            </el-form-item>
 
             <el-form-item label="有无发烧">
             <el-switch v-model="form.isIll" />
             </el-form-item>
-            <el-form-item label="请假原因">
-            <el-checkbox-group v-model="form.type">
-                <el-checkbox label="感冒" name="type" />
-                <el-checkbox label="发烧" name="type" />
-                <el-checkbox label="其他" name="type" />
-            </el-checkbox-group>
+            <el-form-item label="班级">
+            <el-input v-model="form.class" type="number" />
             </el-form-item>
-            <el-form-item label="备注">
-            <el-input v-model="form.desc" type="textarea" />
+            <el-form-item label="学号">
+            <el-input v-model="form.id" type="number" />
             </el-form-item>
+
             <el-form-item>
             <el-button type="primary" @click="onSubmit">签到</el-button>
             <el-button>取消</el-button>

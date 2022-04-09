@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { onBeforeMount, reactive } from "@vue/runtime-core";
+import { inject, onBeforeMount, reactive } from "@vue/runtime-core";
 import axios from "axios";
-
+import { signInStore } from '../../../store/signin/index'
 interface whereType
 {
     adcode:number,
@@ -10,24 +10,21 @@ interface whereType
     province:string,
     district:string
 }
-const state =reactive({
-    where : {} as whereType
-})
 const form = reactive({
   name: '',
-  region: '',
   isIll: false,
-  type: [],
   desc: '',
+  where:'',
+  id:Number(),
 })
-
+const studentItem:any = inject('studentItem')
 const getLocation =()=>{
     axios.get('/api/ws/location/v1/ip',{
         params:{
             "key":"DO6BZ-R426J-ZL4F5-KCVRY-4YVSV-2MFS5",
         }
     }).then(res=>{
-        state.where = res.data.result.ad_info
+        form.where = res.data.result.ad_info.city
     }).catch(err=>{
         console.log(err);
     })
@@ -35,17 +32,21 @@ const getLocation =()=>{
 
 const onSubmit = () => {
   console.log('submit!')
-  console.log(form.name);
-  console.log(form.region);
-  console.log(form.isIll);
-  console.log(form.type);
-  console.log(form.desc);
-
+//   console.log(form.name);
+//   console.log(form.isIll);
+//   console.log(form.desc);
+//   console.log(form.where);
+  const {name,isIll,desc,where,id} = form
+  let newObj = {name,isIll,desc,where,type:3,id:Number(id)}
+  signInStore.push(newObj)
+  console.log(signInStore);
   
 }
 
 onBeforeMount(()=>{
     getLocation()
+    console.log('studentItem',studentItem);
+    form.id =  studentItem.id
 })
 </script>
 <template>
@@ -57,21 +58,14 @@ onBeforeMount(()=>{
                 <el-input v-model="form.name" />
             </el-form-item>
             <el-form-item label="签到地点">
-                <el-select v-model="form.region" placeholder="选择签到地点">
-                    <el-option label="居家" value="home" />
-                    <el-option label="学校" value="school" />
-                </el-select>
+                <el-input v-model="form.where" />
+            </el-form-item>
+            <el-form-item label="学号">
+                <el-input v-model="form.id" />
             </el-form-item>
 
             <el-form-item label="有无发烧">
             <el-switch v-model="form.isIll" />
-            </el-form-item>
-            <el-form-item label="请假原因">
-            <el-checkbox-group v-model="form.type">
-                <el-checkbox label="感冒" name="type" />
-                <el-checkbox label="发烧" name="type" />
-                <el-checkbox label="其他" name="type" />
-            </el-checkbox-group>
             </el-form-item>
             <el-form-item label="备注">
             <el-input v-model="form.desc" type="textarea" />

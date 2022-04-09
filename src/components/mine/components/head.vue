@@ -43,6 +43,7 @@ const state = reactive({
 })
 onBeforeMount(()=>{
     console.log('localStorage',localStorage);
+    
     store.forEach((el)=>{
         if(Number(el.id) === Number(localStorage.getItem("id")))
         {
@@ -56,10 +57,8 @@ onBeforeMount(()=>{
         }
     }).then(res=>{
         console.log(res);
-        console.log('1');
     }).catch(err=>{
         console.log(err);
-        console.log('2');
     })
 
     
@@ -86,31 +85,25 @@ onBeforeMount(()=>{
     height: 70px;
     margin-right: 50px;
 }
-.svgOut
+/* .svgOut
 {
     position: absolute;
     top: 20px;
     left: 20px;
-}
+} */
 .msg2
 {
-    position: absolute;
-    top: 18px;
-    left: 120px;
     color: aliceblue;
 }
 .msg1
 {
-    position: absolute;
-    font-size: 20px;
+    font-size: 18px;
     color: white;
-    top: 15px;
-    left: 50px;
 }
 .svgItem
 {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     color: #fff;
 }
 .container
@@ -133,16 +126,15 @@ onBeforeMount(()=>{
 
 .welcome
 {
-position: relative;
-  width: 80%;
-  height: 40px;
-  padding: 10px;
-  margin: 0 8%;
-  /* display: flex; */
-  background-color: #17BAC2;
-  /* justify-content: center;
-  align-items: center; */
-  border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 40px;
+    padding: 10px;
+    margin: 0 8%;
+    background-color: #17BAC2;
+    border-radius: 40px;
 }
 
 </style>
