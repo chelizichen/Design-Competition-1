@@ -4,6 +4,7 @@ import axios from "axios";
 import { signInStore } from '../../../store/signin/index'
 import { ElMessage } from 'element-plus'
 import { inject } from "vue";
+import { currTime } from "../../../store/public/time";
 
 interface whereType
 {
@@ -20,7 +21,9 @@ const form = reactive({
   name: '',
   isIll: false,
   desc: '',
-  id:Number()
+  id:Number(),
+  time:currTime()
+
 })
 
 const getLocation =()=>{
@@ -38,9 +41,9 @@ const studentItem:any = inject('studentItem')
 
 const onSubmit = () => {
   console.log('submit!')
-    const {name,isIll,desc,id} = form
+    const {name,isIll,desc,id,time} = form
     
-    let newObj = {name,isIll,desc,type:2,id:Number(id)}
+    let newObj = {name,isIll,desc,type:2,id:Number(id),content:'✔️',date:time}
     if(name !== studentItem.name)
     {
         console.log('不是本人');

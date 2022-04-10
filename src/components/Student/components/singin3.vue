@@ -3,15 +3,17 @@ import { inject, onBeforeMount, reactive } from "@vue/runtime-core";
 import axios from "axios";
 import { signInStore } from '../../../store/signin/index'
 import { ElMessage } from 'element-plus'
+import {currTime} from '../../../store/public/time'
 const form = reactive({
   name: '',
   isIll: false,
   desc: '',
   where:'',
   id:Number(),
+  time:currTime()
 })
-const re = /^([\u0931-\uFFE5]{2,4})$/
 
+const re = /^([\u0931-\uFFE5]{2,4})$/
 const studentItem:any = inject('studentItem')
 const getLocation =()=>{
     axios.get('/api/ws/location/v1/ip',{
@@ -27,8 +29,8 @@ const getLocation =()=>{
 const onSubmit = () => {
     console.log('submit!')
     // 失去响应式
-    const {name,isIll,desc,where,id} = form
-    let newObj = {name,isIll,desc,where,type:3,id:Number(id)}
+    const {name,isIll,desc,where,id,time} = form
+    let newObj = {name,isIll,desc,where,type:3,id:Number(id),content:'✔️',date:time}
     if(name !== studentItem.name)
     {
         console.log('不是本人');

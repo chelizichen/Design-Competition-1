@@ -3,6 +3,7 @@ import { onBeforeMount, reactive } from "@vue/runtime-core";
 import axios from "axios";
 import { ElMessage } from "element-plus";
 import { inject } from "vue";
+import { currTime } from "../../../store/public/time";
 import { signInStore } from '../../../store/signin/index'
 
 interface whereType
@@ -11,16 +12,17 @@ interface whereType
     city:string,
     nation:string,
     province:string,
-    district:string
+    district:string,
 }
 const state =reactive({
     where : {} as whereType
 })
 const form = reactive({
-  name: '',
-  isIll: false,
-  id:'',
-  class_var:''
+    name: '',
+    isIll: false,
+    id:'',
+    class_var:'',
+    time:currTime()
 })
 
 const studentItem:any = inject('studentItem')
@@ -38,8 +40,8 @@ const getLocation =()=>{
 }
 
 const onSubmit = () => {
-  const {name,isIll,id,class_var} = form
-  let newObj = {name,isIll,id:Number(id),class_var,type:1}
+  const {name,isIll,id,class_var,time} = form
+  let newObj = {name,isIll,id:Number(id),class_var,type:1,date:time,content:'✔️'}
       if(name !== studentItem.name)
     {
         console.log('不是本人');
