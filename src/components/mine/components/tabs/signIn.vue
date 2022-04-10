@@ -7,7 +7,6 @@ const resDate = reactive({
     signIn1:[] as any[], // 班级签到
     signIn2:[] as any[], // 寝室签到
     signIn3:[] as any[], // 定位签到
-    store:signInStore
 })
 onBeforeMount(()=>{
   signInStore.forEach( el => {
@@ -24,13 +23,16 @@ onBeforeMount(()=>{
           resDate.signIn3.push(el)
       }
   })
+  console.log(resDate.signIn3);
+  
 })
 const dealMyDate = (v:any) => {
+  // v 是 el 组件传下来的
     let res = '';
     for (let index = 0; index < resDate.signIn3.length; index++) {
         if (resDate.signIn3[index].date == v) {
-        res = resDate.signIn3[index].content;
-        break;
+          res = resDate.signIn3[index].content;
+          break;
         }
     }
     return res;

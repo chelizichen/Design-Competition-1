@@ -1,7 +1,7 @@
 export const currTime = ()=>{
     let datetime =new Date()
     let year = datetime.getFullYear();
-    let month = String(datetime.getMonth())
+    let month = String(datetime.getMonth()+1)
     let date = String(datetime.getDate())
     if(Number(month)<=9)
     {
