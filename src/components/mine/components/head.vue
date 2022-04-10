@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeMount, onMounted, reactive } from "@vue/runtime-core";
+import { inject, onBeforeMount, onMounted, reactive } from "@vue/runtime-core";
 import { studentStore, studentType } from '../../../store/student/index'
 import axios from 'axios'
 const store = studentStore
@@ -41,9 +41,9 @@ const store = studentStore
 const state = reactive({
     student:[] as studentType[]
 })
+
 onBeforeMount(()=>{
     console.log('localStorage',localStorage);
-    
     store.forEach((el)=>{
         if(Number(el.id) === Number(localStorage.getItem("id")))
         {
@@ -60,8 +60,6 @@ onBeforeMount(()=>{
     }).catch(err=>{
         console.log(err);
     })
-
-    
 })
 </script>
 

@@ -1,6 +1,6 @@
 
 <script setup lang="ts">
-import { onBeforeMount, provide, reactive } from "@vue/runtime-core";
+import { onBeforeMount, onMounted, provide, reactive,nextTick } from "@vue/runtime-core";
 import axios from "axios";
 const state = reactive({
   loca:{}
@@ -13,6 +13,8 @@ const getLocation =()=>{
     }).then(res=>{
       state.loca = res.data.result.ad_info
       console.log(state.loca);
+      // console.log('document.body.offsetHeight',document.body.offsetHeight);
+      localStorage.setItem('offSetHeight',String(document.body.offsetHeight))
       // provide('currLocation',state.loca)
     }).catch(err=>{
         console.log(err);
@@ -21,7 +23,6 @@ const getLocation =()=>{
 onBeforeMount(()=>{
   getLocation()
 })
-
 
 
 // provide('currLocation',state.loca)

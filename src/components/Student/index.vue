@@ -5,7 +5,6 @@ import { useRouter } from 'vue-router';
 import { studentStore } from '../../store/student';
 import StutendBar from './components/navLink.vue'
 let router = useRouter()
-let studentItem = {}
 onMounted(()=>{
     console.log(localStorage.getItem("id"));
     if(localStorage.getItem("id") === null)
@@ -20,8 +19,8 @@ onMounted(()=>{
         .catch(() => {
         })
     }
-    // console.log('studentItem',studentItem);
 })
+let studentItem = {}
 let id = localStorage.getItem("id")
 studentStore.forEach(el=>{
     if(el.id === id)
@@ -31,10 +30,6 @@ studentStore.forEach(el=>{
     } 
 })
 provide('studentItem',studentItem)
-
-
-// provide('studentItem',studentItem)
-// console.log('studentItem',studentItem);
 </script>
 
 <template>

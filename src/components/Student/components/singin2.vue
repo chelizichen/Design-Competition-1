@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { onBeforeMount, reactive } from "@vue/runtime-core";
 import axios from "axios";
+import { signInStore } from '../../../store/signin/index'
+import { ElMessage } from 'element-plus'
+import { inject } from "vue";
 
 interface whereType
 {
@@ -17,6 +20,7 @@ const form = reactive({
   name: '',
   isIll: false,
   desc: '',
+  id:Number()
 })
 
 const getLocation =()=>{
@@ -30,19 +34,46 @@ const getLocation =()=>{
         console.log(err);
     })
 }
+const studentItem:any = inject('studentItem')
 
 const onSubmit = () => {
   console.log('submit!')
-  console.log(form.name);
-  console.log(form.isIll);
-  console.log(form.desc);
-  console.log(state.where);
+    const {name,isIll,desc,id} = form
+    
+    let newObj = {name,isIll,desc,type:2,id:Number(id)}
+    if(name !== studentItem.name)
+    {
+        console.log('不是本人');
+        onpenFail()
+    }
+    else
+    {
+        openSuccess()
+        signInStore.push(newObj)
+    }
+    console.log(signInStore);
   
 }
 
 onBeforeMount(()=>{
     getLocation()
+    form.id =  studentItem.id
 })
+
+// 消息成功弹出框 
+const openSuccess = () => {
+      ElMessage({
+        type: 'success',
+        message: `签到成功`,
+      })
+}
+// 消息失败弹出框
+const onpenFail = () => {
+      ElMessage({
+        type: 'error',
+        message: `签到失败`,
+      })
+}
 </script>
 <template>
 <div>

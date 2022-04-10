@@ -2,14 +2,7 @@
 import { inject, onBeforeMount, reactive } from "@vue/runtime-core";
 import axios from "axios";
 import { signInStore } from '../../../store/signin/index'
-interface whereType
-{
-    adcode:number,
-    city:string,
-    nation:string,
-    province:string,
-    district:string
-}
+import { ElMessage } from 'element-plus'
 const form = reactive({
   name: '',
   isIll: false,
@@ -17,6 +10,8 @@ const form = reactive({
   where:'',
   id:Number(),
 })
+const re = /^([\u0931-\uFFE5]{2,4})$/
+
 const studentItem:any = inject('studentItem')
 const getLocation =()=>{
     axios.get('/api/ws/location/v1/ip',{
@@ -29,18 +24,22 @@ const getLocation =()=>{
         console.log(err);
     })
 }
-
 const onSubmit = () => {
-  console.log('submit!')
-//   console.log(form.name);
-//   console.log(form.isIll);
-//   console.log(form.desc);
-//   console.log(form.where);
-  const {name,isIll,desc,where,id} = form
-  let newObj = {name,isIll,desc,where,type:3,id:Number(id)}
-  signInStore.push(newObj)
-  console.log(signInStore);
-  
+    console.log('submit!')
+    // 失去响应式
+    const {name,isIll,desc,where,id} = form
+    let newObj = {name,isIll,desc,where,type:3,id:Number(id)}
+    if(name !== studentItem.name)
+    {
+        console.log('不是本人');
+        onpenFail()
+    }
+    else
+    {
+        openSuccess()
+        signInStore.push(newObj)
+    }
+    console.log(signInStore);
 }
 
 onBeforeMount(()=>{
@@ -48,6 +47,21 @@ onBeforeMount(()=>{
     console.log('studentItem',studentItem);
     form.id =  studentItem.id
 })
+
+// 消息成功弹出框 
+const openSuccess = () => {
+      ElMessage({
+        type: 'success',
+        message: `签到成功`,
+      })
+}
+// 消息失败弹出框
+const onpenFail = () => {
+      ElMessage({
+        type: 'error',
+        message: `签到失败`,
+      })
+}
 </script>
 <template>
 <div>

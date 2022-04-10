@@ -1,0 +1,35 @@
+<script setup lang="ts">
+import axios from "axios";
+import { inject, onBeforeMount, reactive } from "vue";
+import User from './tabs/user.vue'
+import Location from './tabs/location.vue'
+let studentItem = inject("studentItem")
+let location = reactive({
+    where:{}
+})
+console.log('studentItem',studentItem);
+// onBeforeMount(()=>{
+//     axios.get('/api/ws/location/v1/ip',{
+//         params:{
+//             "key":"DO6BZ-R426J-ZL4F5-KCVRY-4YVSV-2MFS5",
+//         }
+//     }).then(res=>{
+//         location.where = res.data
+//     }).catch(err=>{
+//         console.log(err);
+//     })
+// })
+
+
+</script>
+<template>
+    <el-tabs type="border-card">
+    <el-tab-pane label="User"><User :user="studentItem"/></el-tab-pane>
+    <el-tab-pane label="Location"><Location /></el-tab-pane>
+    <el-tab-pane label="Role">Role</el-tab-pane>
+    <el-tab-pane label="Task">Task</el-tab-pane>
+  </el-tabs>
+</template>
+<style>
+
+</style>

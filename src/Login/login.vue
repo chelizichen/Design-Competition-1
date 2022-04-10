@@ -5,7 +5,8 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import type { Action } from 'element-plus'
 import { useRouter } from 'vue-router'
 const state = reactive({
-    studentId:''
+    studentId:'',
+    name:''
 })
 let store = studentStore
 let router = useRouter()
@@ -13,6 +14,7 @@ let router = useRouter()
 let loginIn =() =>{
     console.log(state.studentId);
     console.log(store);
+    let isLogin = false
     store.forEach(el=>{
         if( el.id == state.studentId)
         {
@@ -25,28 +27,81 @@ let loginIn =() =>{
                         type:'success',
                         message: `欢迎您,${el.name}`,
                     })
+                    isLogin = true
                     router.push('/home')
                 },
             })
         }
     })
+    
 }
+
 </script>
 <template>
-<div class="login">
-    <div>登陆页面</div>
-    <input type="text" v-model="state.studentId">
-    <hr>
-    <button @click="loginIn()">登陆</button>
+<div class="bg">
+    <div class="login">
+        <input type="text" v-model="state.name" class="inp" placeholder="姓名">
+        <input type="text" v-model="state.studentId" class="inp" placeholder="学号">
+        <button @click="loginIn()" class="btn">登陆</button>
+    </div>
 </div>
 </template>
 
 <style scoped>
-    .login
+    .bg
     {
-        position: fixed;
-        top: 50%;
-        left: 50%;
+        background: url('~@/../src/assets/wallpaper.jpg') no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 900px;
     }
+.login{
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* absolute居中的一种方法 */
+    background-color: whitesmoke;
+    width: 100%;
+    height: 250px;
+    border-radius: 25px;
+    text-align: center;
+    padding: 20px 20px;
+    box-sizing: border-box;
+    /* 这样padding就不会影响大小 */
+}
+
+p{
+    font-size: 42px;
+    font-weight: 600;
+}
+
+input{
+    background-color: whitesmoke;
+    width: 100%;
+    height: 48px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 2px solid silver;
+    /* 下面的会覆盖上面的步伐 */
+    outline: none;
+    font-size: 22px;
+}
+
+.btn{
+    background-color: #59c2c5;
+    width: 38%;
+    height: 48px;
+    border-radius: 8px;
+    margin-top: 40px;
+    font-size: 28px;
+    font-weight: 600;
+    color: white;
+}
+.btn:hover{
+    background-color: #59c2a0;
+}
 </style>>
         

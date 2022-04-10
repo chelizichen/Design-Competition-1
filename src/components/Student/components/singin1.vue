@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { onBeforeMount, reactive } from "@vue/runtime-core";
 import axios from "axios";
+import { ElMessage } from "element-plus";
+import { inject } from "vue";
 import { signInStore } from '../../../store/signin/index'
 
 interface whereType
@@ -21,6 +23,8 @@ const form = reactive({
   class_var:''
 })
 
+const studentItem:any = inject('studentItem')
+
 const getLocation =()=>{
     axios.get('/api/ws/location/v1/ip',{
         params:{
@@ -34,18 +38,36 @@ const getLocation =()=>{
 }
 
 const onSubmit = () => {
-  console.log('submit!')
-  console.log(form.name);
-  console.log(form.isIll);
-  console.log(form.class_var);
   const {name,isIll,id,class_var} = form
-  let newObj = {name,isIll,id,class_var,type:1}
-  signInStore.push(newObj)
-
-
-  
+  let newObj = {name,isIll,id:Number(id),class_var,type:1}
+      if(name !== studentItem.name)
+    {
+        console.log('不是本人');
+        
+        onpenFail()
+    }
+    else
+    {
+        openSuccess()
+        signInStore.push(newObj)
+        console.log(signInStore);
+        
+    }
 }
-
+// 消息成功弹出框 
+const openSuccess = () => {
+      ElMessage({
+        type: 'success',
+        message: `签到成功`,
+      })
+}
+// 消息失败弹出框
+const onpenFail = () => {
+      ElMessage({
+        type: 'error',
+        message: `签到失败`,
+      })
+}
 onBeforeMount(()=>{
     getLocation()
 })
@@ -62,8 +84,8 @@ onBeforeMount(()=>{
             <el-form-item label="有无发烧">
             <el-switch v-model="form.isIll" />
             </el-form-item>
-            <el-form-item label="班级">
-            <el-input v-model="form.class" type="number" />
+            <el-form-item label="专业班级">
+            <el-input v-model="form.class_var" />
             </el-form-item>
             <el-form-item label="学号">
             <el-input v-model="form.id" type="number" />
