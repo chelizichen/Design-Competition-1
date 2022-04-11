@@ -8,6 +8,8 @@ const resDate = reactive({
     signIn2:[] as any[], // 寝室签到
     signIn3:[] as any[], // 定位签到
 })
+
+// 没有对应store 的姓名
 onBeforeMount(()=>{
   signInStore.forEach( el => {
       if(el.type==1)

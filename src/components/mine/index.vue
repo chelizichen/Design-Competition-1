@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="content">
         <Head/>
         <Func/>
         <Tabs/>
@@ -43,6 +43,9 @@ studentStore.forEach(el=>{
 provide('studentItem',studentItem)
 </script>
 
-<style>
-
+<style scoped>
+    .content
+    {
+        margin-bottom: 70px;
+    }
 </style>

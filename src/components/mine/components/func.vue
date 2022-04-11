@@ -39,7 +39,7 @@ console.log('studentItem',studentItem);
             </div>
             <div class="inBox">
                 <el-icon class="inIcon"><upload /></el-icon>
-                <router-link to="/student/signin1" class="defaultClass">注销登录</router-link>
+                <router-link to="/student/signin1" class="defaultClass">选修课程</router-link>
             </div>
         </div>
     </div>

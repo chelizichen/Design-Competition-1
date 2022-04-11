@@ -7,7 +7,6 @@ import News from '../components/Home/components/NewsComponent.vue'
 import SignIn1 from '../components/Student/components/singin1.vue'
 import SignIn2 from '../components/Student/components/singin2.vue'
 import SignIn3 from '../components/Student/components/singin3.vue'
-import Vacate1 from '../components/Student/components/vacate1.vue'
 const routes= [
     {
         path:'/login',
@@ -39,8 +38,24 @@ const routes= [
             },
             {
                 path:'/student/vacate1',
-                component:Vacate1
-            }
+                component:()=>import ('../components/Student/components/vacate1.vue')
+            },
+            {
+                path:'/student/vacate2',
+                component:()=>import ("../components/Student/components/vacate2.vue")
+            },
+            {
+                path:'/student/course1',
+                component:()=>import ("../components/Student/components/course1.vue")
+            },
+            {
+                path:'/student/course2',
+                component:()=>import ("../components/Student/components/course2.vue")
+            },
+            {
+                path:'/student/course3',
+                component:()=>import ("../components/Student/components/course3.vue")
+            },
         ]
     },
     {

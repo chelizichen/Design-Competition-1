@@ -64,9 +64,10 @@ onBeforeMount(()=>{
     justify-content: center;
     height: 100%;
     width: 100%;
+    color: #f1f1f1;
   }
   .active
   {
-    background-color: bisque;
+    background-color: rgb(142 153 215);
   }
 </style>
