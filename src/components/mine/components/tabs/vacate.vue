@@ -32,6 +32,7 @@ onBeforeMount(()=>{
 <style scoped>
     .title
     {
-        color:royalblue
+        color:royalblue;
+        margin-bottom: 5px;
     }
 </style>

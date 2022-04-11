@@ -23,23 +23,23 @@ console.log('studentItem',studentItem);
             </div>
             <div class="inBox">
                 <el-icon class="inIcon"><comment /></el-icon>
-                <router-link to="/student/signin1" class="defaultClass">有事外出</router-link>
+                <router-link to="/student/vacate1" class="defaultClass">有事外出</router-link>
             </div>
             <div class="inBox">
                 <el-icon class="inIcon"><scissor /></el-icon>
-                <router-link to="/student/signin1" class="defaultClass">因病外出</router-link>
+                <router-link to="/student/vacate2" class="defaultClass">因病外出</router-link>
             </div>
             <div class="inBox">
                 <el-icon class="inIcon"><reading /></el-icon>
-                <router-link to="/student/signin1" class="defaultClass">查询成绩</router-link>
+                <router-link to="/student/course1" class="defaultClass">查询成绩</router-link>
             </div>
             <div class="inBox">
                 <el-icon class="inIcon"><tickets /></el-icon>
-                <router-link to="/student/signin1" class="defaultClass">申请补考</router-link>
+                <router-link to="/student/course2" class="defaultClass">申请补考</router-link>
             </div>
             <div class="inBox">
                 <el-icon class="inIcon"><upload /></el-icon>
-                <router-link to="/student/signin1" class="defaultClass">选修课程</router-link>
+                <router-link to="/student/course3" class="defaultClass">选修课程</router-link>
             </div>
         </div>
     </div>

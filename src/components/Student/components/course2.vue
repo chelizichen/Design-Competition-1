@@ -19,25 +19,33 @@ const state = reactive({
 })
 const submit=(id:number)=>{
     console.log(id);
+    let newStore = [] as any
     courseStore.forEach(el => {
-        if( el.courseId === String(id))
+        if( el.courseId === String(id) && el.studentId == localStorage.getItem("id"))
         {
             console.log(el);
+
             el.isMakeUp = true
         }
     });
+    courseStore.forEach((el)=>{
+        if(el.studentId == localStorage.getItem("id"))
+        {
+            newStore.push(el) 
+        }
+    });
     state.store = []
-    state.store = courseStore
+    state.store = newStore
 
     console.log(courseStore);
     
 }
 onBeforeMount(()=>{
     courseStore.forEach((el)=>{
-    if(el.studentId == localStorage.getItem("id"))
-    {
-        state.store.push(el) 
-    }
+        if(el.studentId == localStorage.getItem("id"))
+        {
+            state.store.push(el) 
+        }
     });
     console.log('被加载了');
 })
