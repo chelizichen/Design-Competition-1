@@ -2,8 +2,8 @@
 
 ## 如何使用
 
-- [npm install] 下载依赖包
-- [npm run dev] 运行
+- <npm install> 下载依赖包
+- <npm run dev> 运行
 
 ## Type Support For `.vue` Imports in TS
 
