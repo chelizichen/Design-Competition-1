@@ -2,7 +2,7 @@
     <div v-if="loading">
         <div v-for="item in state.store" :key="item.courseId" class="storeBg">
             <!-- <div>{{item}}</div> -->
-            <div v-if="item.isChoose === true" class="coreItem">
+            <div v-if="item.isChoose === true && item.core>0" class="coreItem">
                 <div>{{item.courseName}}</div>
                 <div :class="item.core>=60?'coreGreen':'coreRed' ">{{item.core}}</div>
             </div>

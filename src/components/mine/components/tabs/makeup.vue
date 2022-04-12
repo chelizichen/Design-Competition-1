@@ -3,10 +3,11 @@
     :data="state.store"
     style="width: 100%"
     :row-class-name="tableRowClassName"
+    border
   >
-    <el-table-column prop="courseName" label="课程名" width="90" align="center"/>
-    <el-table-column prop="core" label="分数" width="90" align="center"/>
-    <el-table-column prop="isMakeUp" label="是否申请补考" align="center" :formatter="typeMakeUp">
+    <el-table-column prop="courseName" label="课程名" align="center"/>
+    <el-table-column prop="core" label="分数" width="80" align="center"/>
+    <el-table-column prop="isMakeUp" label="区间" align="center" :formatter="typeMakeUp" width="120">
         <!-- <template slot-scope="scope">
             {{scope.isMakeUp}}
         </template> -->
@@ -45,17 +46,21 @@ const typeMakeUp = (row:any)=>{
     {
         return '及格'
     }
-    if(row.core<60)
+    if(row.core>0&&row.core<60)
     {
         switch(row.isMakeUp)
         {
             case false:
-                return '未申请'
+                return '不合格'
             case true:
-                return '已申请'
+                return '已申请补考'
             default:
                 return '未申请'
         }
+    }
+    if(row.core == 0)
+    {
+      return '已选修'
     }
 }
 const tableRowClassName = ({

@@ -9,6 +9,10 @@ import SignIn2 from '../components/Student/components/singin2.vue'
 import SignIn3 from '../components/Student/components/singin3.vue'
 const routes= [
     {
+        path:'/',
+        redirect:"/home"
+    },
+    {
         path:'/login',
         component:Login
     },

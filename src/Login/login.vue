@@ -6,7 +6,8 @@ import type { Action } from 'element-plus'
 import { useRouter } from 'vue-router'
 const state = reactive({
     studentId:'',
-    name:''
+    name:'',
+    isLogin:false
 })
 let store = studentStore
 let router = useRouter()
@@ -14,10 +15,10 @@ let router = useRouter()
 let loginIn =() =>{
     console.log(state.studentId);
     console.log(store);
-    let isLogin = false
     store.forEach(el=>{
-        if( el.id == state.studentId)
+        if( el.id == state.studentId && el.name == state.name)
         {
+            state.isLogin = true
             console.log('匹配上了');
             localStorage.setItem("id",state.studentId)
             ElMessageBox.alert('登陆成功', 'Title', {
@@ -27,13 +28,18 @@ let loginIn =() =>{
                         type:'success',
                         message: `欢迎您,${el.name}`,
                     })
-                    isLogin = true
                     router.push('/home')
                 },
             })
         }
     })
-    
+    if(state.isLogin == false)
+    {
+        ElMessage({
+            type:'error',
+            message: `登陆失败，请检查您的学号和姓名是否匹配`,
+        })
+    }
 }
 
 </script>

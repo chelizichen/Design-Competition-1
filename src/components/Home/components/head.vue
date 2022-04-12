@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { reactive } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
+import { useRouter } from "vue-router";
 import img1 from '../../../assets/title/1.jpeg'
 import img2 from '../../../assets/title/2.jpeg'
 import img3 from '../../../assets/title/3.jpeg'
 import img4 from '../../../assets/title/4.jpeg'
 import img5 from '../../../assets/title/5.jpeg'
 import img6 from '../../../assets/title/6.jpeg'
-
+const router = useRouter()
 const imgUrl = reactive({
     imgSrc:[
         {
@@ -30,8 +31,12 @@ const imgUrl = reactive({
         },
 
     ]
-    
 })
+const routerPush = (num:number)=>
+{
+    router.push(`/news/${num+1}`)
+    console.log(num);
+}
 // onMounted(()=>{
 //     console.log(123);
     
@@ -46,8 +51,7 @@ const imgUrl = reactive({
     <!-- 轮播图 -->
         <el-carousel :interval="5000" type="card" height="120px">
             <el-carousel-item v-for="(item,index) in imgUrl.imgSrc" :key="index">
-                <!-- <h3>{{ item.src }}</h3> -->
-                <img :src="item.src" alt="" class="imgSwiper">
+                <img :src="item.src" alt="" class="imgSwiper" @click="routerPush(index)">
             </el-carousel-item>
         </el-carousel>
         <!-- 提醒 -->

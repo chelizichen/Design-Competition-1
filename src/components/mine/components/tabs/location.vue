@@ -29,19 +29,34 @@ const getData = async ()=>{
 
 </script>
 <template>
-    <div>
-        <el-descriptions title="登陆地址">
-            <el-descriptions-item label="国家">{{location.where.nation}}</el-descriptions-item>
-            <el-descriptions-item label="省">{{location.where.province}}</el-descriptions-item>
-            <el-descriptions-item label="市">{{location.where.city}}</el-descriptions-item>
-            <el-descriptions-item label="邮政编码">
-                <el-tag size="small">{{location.where.adcode}}</el-tag>
-            </el-descriptions-item>
-            <el-descriptions-item label="IP" >{{location.Ip}}</el-descriptions-item>
-        </el-descriptions>
-    </div>
+    <div class="login">登陆地址</div>
+    <el-descriptions border>
+        <el-descriptions-item label="国家">{{location.where.nation}}</el-descriptions-item>
+        <el-descriptions-item label="省">{{location.where.province}}</el-descriptions-item>
+        <el-descriptions-item label="市">{{location.where.city}}</el-descriptions-item>
+        <el-descriptions-item label="邮政编码">
+            <el-tag size="small">{{location.where.adcode}}</el-tag>
+        </el-descriptions-item>
+        <el-descriptions-item label="IP" >{{location.Ip}}</el-descriptions-item>
+    </el-descriptions>
 </template>
 
-<style>
-
+<style scoped>
+    .login
+    {
+        margin-top: 5px;
+        margin-bottom: 10px;
+        font-size: 22px;
+        font-weight: 900;
+        text-align: center;
+        color: cornflowerblue;
+    }
+    .footerBox
+    {
+        padding-top: 10px;
+        width: 100%;
+        height: auto;
+        background-color: #5bb6df;
+        padding-bottom: 20px;
+    }
 </style>

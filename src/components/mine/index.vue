@@ -3,6 +3,7 @@
         <Head/>
         <Func/>
         <Tabs/>
+        <Location/>
     </div>
 </template>
 
@@ -13,6 +14,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import Head from './components/head.vue'
 import Func from './components/func.vue'
 import Tabs from './components/tabs.vue'
+import Location from './components/tabs/location.vue'
 import { provide } from 'vue';
 import { studentStore } from '../../store/student';
 let router = useRouter()

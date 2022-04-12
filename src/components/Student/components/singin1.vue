@@ -42,18 +42,14 @@ const getLocation =()=>{
 const onSubmit = () => {
   const {name,isIll,id,class_var,time} = form
   let newObj = {name,isIll,id:Number(id),class_var,type:1,date:time,content:'✔️'}
-      if(name !== studentItem.name)
-    {
+    if(name !== studentItem.name){
         console.log('不是本人');
-        
         onpenFail()
     }
-    else
-    {
+    else{
         openSuccess()
         signInStore.push(newObj)
         console.log(signInStore);
-        
     }
 }
 // 消息成功弹出框 

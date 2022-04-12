@@ -10,13 +10,13 @@ const {name,department,major,class_var,id} = props.user as studentType
 <template>
     <div>
         <el-descriptions title="登陆信息">
-            <el-descriptions-item label="姓名">{{name}}</el-descriptions-item>
-            <el-descriptions-item label="学号">{{id}}</el-descriptions-item>
-            <el-descriptions-item label="学部">{{department}}</el-descriptions-item>
-            <el-descriptions-item label="学校">
+            <el-descriptions-item label="姓名:">{{name}}</el-descriptions-item>
+            <el-descriptions-item label="学号:">{{id}}</el-descriptions-item>
+            <el-descriptions-item label="学部:">{{department}}</el-descriptions-item>
+            <el-descriptions-item label="学校:">
                 <el-tag size="small">武汉城市学院</el-tag>
             </el-descriptions-item>
-            <el-descriptions-item label="专业">{{major}}</el-descriptions-item>
+            <el-descriptions-item label="专业:">{{major}}</el-descriptions-item>
         </el-descriptions>
     </div>
 </template>

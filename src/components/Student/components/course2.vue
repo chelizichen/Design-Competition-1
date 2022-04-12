@@ -2,10 +2,12 @@
     <div v-if="loading">
         <div v-for="item in state.store" :key="item.courseId" class="storeBg">
             <!-- <div>{{item}}</div> -->
-            <div v-if="item.isChoose === true && item.core<=60" class="coreItem">
+            <div v-if="item.isChoose === true && item.core<=60 && item.core>0" class="coreItem">
                 <div>{{item.courseName}}</div>
-                <div class="coreRed">{{item.core}}（未合格）</div>
-                <el-button type="danger" @click="submit(item.courseId)">{{item.isMakeUp === true?"已申请":"补考"}}</el-button>
+                <div style="display:flex;alignItems:center;justifyContent:center">
+                    <div class="coreRed">{{item.core}}（未合格）</div>
+                    <el-button type="danger" @click="submit(item.courseId)">{{item.isMakeUp === true?"已申请":"补考"}}</el-button>
+                </div>
             </div>
         </div>
     </div>
