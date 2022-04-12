@@ -29,8 +29,9 @@ const getData = async ()=>{
 
 </script>
 <template>
-    <div class="login">登陆地址</div>
-    <el-descriptions border>
+    <!-- <div class="login">登陆地址</div> -->
+    <el-descriptions border title="登陆地址">
+        <!-- <el-descriptions title="登陆地址"></el-descriptions> -->
         <el-descriptions-item label="国家">{{location.where.nation}}</el-descriptions-item>
         <el-descriptions-item label="省">{{location.where.province}}</el-descriptions-item>
         <el-descriptions-item label="市">{{location.where.city}}</el-descriptions-item>

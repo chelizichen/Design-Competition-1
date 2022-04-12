@@ -53,4 +53,25 @@ export let signInStore:signin[] = [
         date: '2022-04-04', 
         content: '✔️' 
     },
+    {
+        name:'王利娜',
+        isIll:false,
+        desc:"无",
+        where:"武汉市",
+        type:3,
+        id:202110137509,
+        date: '2022-04-04', 
+        content: '✔️' 
+    },
+    {
+        name:'王利娜',
+        isIll:false,
+        desc:"无",
+        where:"武汉市",
+        type:2,
+        id:202110137509,
+        date: '2022-04-10', 
+        content: '✔️' 
+    },
+
 ]

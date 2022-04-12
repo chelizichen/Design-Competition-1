@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {defineProps} from 'vue'
 import { studentType } from '../../../../store/student';
+import Location from './location.vue'
 const props = defineProps({
     user:Object 
 })
@@ -18,6 +19,7 @@ const {name,department,major,class_var,id} = props.user as studentType
             </el-descriptions-item>
             <el-descriptions-item label="专业:">{{major}}</el-descriptions-item>
         </el-descriptions>
+        <Location/>
     </div>
 </template>
 

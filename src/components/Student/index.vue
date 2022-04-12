@@ -4,6 +4,7 @@ import { onMounted, provide, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import { studentStore } from '../../store/student';
 import StutendBar from './components/navLink.vue'
+import Footer from '../Home/components/footer.vue'
 let router = useRouter()
 onMounted(()=>{
     console.log(localStorage.getItem("id"));
@@ -33,10 +34,20 @@ provide('studentItem',studentItem)
 </script>
 
 <template>
-    <div>
-        <StutendBar/>
+    <div class="outBox">
+        <StutendBar class="student"/>
+        <Footer/>
     </div>
 </template>
-<style>
-
+<style scoped>
+.outBox
+{
+    margin-bottom: 50px;
+}
+    .student
+    {
+        width: 100%;
+        height: 1000px;
+        /* margin-bottom: 50px; */
+    }
 </style>

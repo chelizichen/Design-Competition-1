@@ -35,5 +35,13 @@ export let studentStore :studentType[] = [
         major:'信息科学',
         class_var:'四班',
         id:'20221013173'
-    }
+    },
+    {
+        name:'王利娜',
+        department:'信工',
+        major:'计算机科学与技术',
+        class_var:'五班',
+        id:'202110137509'
+    },
+
 ]

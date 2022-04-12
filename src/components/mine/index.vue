@@ -3,7 +3,8 @@
         <Head/>
         <Func/>
         <Tabs/>
-        <Location/>
+        <Footer/>
+        <!-- <Location/> -->
     </div>
 </template>
 
@@ -15,6 +16,7 @@ import Head from './components/head.vue'
 import Func from './components/func.vue'
 import Tabs from './components/tabs.vue'
 import Location from './components/tabs/location.vue'
+import Footer from '../../components/Home/components/footer.vue'
 import { provide } from 'vue';
 import { studentStore } from '../../store/student';
 let router = useRouter()
@@ -48,6 +50,6 @@ provide('studentItem',studentItem)
 <style scoped>
     .content
     {
-        margin-bottom: 70px;
+        margin-bottom: 50px;
     }
 </style>

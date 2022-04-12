@@ -32,6 +32,8 @@ console.log('studentItem',studentItem);
     <el-tab-pane label="签到记录"><SignIn/></el-tab-pane>
     <el-tab-pane label="请假记录"><Vacate/></el-tab-pane>
     <el-tab-pane label="学生成绩"><MakeUp/></el-tab-pane>
+    <!-- <el-tab-pane label="位置信息"><Location/></el-tab-pane> -->
+
 
   </el-tabs>
 </template>

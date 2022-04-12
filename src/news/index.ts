@@ -1,15 +1,15 @@
 interface news{
     title:string,
     author:string,
-    content1:string,
+    content1:string, // content 段落
     content2:string,
     content3:string,
     content4:string,
     content5?:string,
     content6?:string,
     content7?:string,
-    index:number,
-    pic1:any,
+    index:number, // 索引
+    pic1:any, // 图片地址
     pic2?:any,
     pic3?:any,
     pic4?:any,
@@ -18,6 +18,7 @@ import img1 from '../assets/news/1.jpeg'
 import img2 from '../assets/news/2.jpeg'
 import img3 from '../assets/news/3.png'
 import img4 from '../assets/news/4.png'
+import img5 from '../assets/news/5.jpeg'
 
 export const newsStore:news[]=[
     {
@@ -33,5 +34,16 @@ export const newsStore:news[]=[
         pic2:img2,
         pic3:img3,
         pic4:img4,
+    },
+    {
+        index:2,
+        title:'新闻观察：疫情下运输物流如何保畅通',
+        author:'来源：央视网 | 2022年04月12日 13:47:17',
+        content1:'央视网消息：在全国本轮疫情的背景之下，多地高速实施管控，导致物流通行不畅。国务院联防联控机制11日发布通知，要求各地区、各部门全力保障货运物流畅通，特别是医疗防控物资、生活必需品、政府储备物资、邮政快递等民生物资和农业、能源、原材料等重要生产物资的运输畅通。',
+        content2:'央视网消息：在全国本轮疫情的背景之下，多地高速实施管控，导致物流通行不畅。国务院联防联控机制11日发布通知，要求各地区、各部门全力保障货运物流畅通，特别是医疗防控物资、生活必需品、政府储备物资、邮政快递等民生物资和农业、能源、原材料等重要生产物资的运输畅通。',
+        content3:'央视网消息：在全国本轮疫情的背景之下，多地高速实施管控，导致物流通行不畅。国务院联防联控机制11日发布通知，要求各地区、各部门全力保障货运物流畅通，特别是医疗防控物资、生活必需品、政府储备物资、邮政快递等民生物资和农业、能源、原材料等重要生产物资的运输畅通。',
+        content4:'央视网消息：在全国本轮疫情的背景之下，多地高速实施管控，导致物流通行不畅。国务院联防联控机制11日发布通知，要求各地区、各部门全力保障货运物流畅通，特别是医疗防控物资、生活必需品、政府储备物资、邮政快递等民生物资和农业、能源、原材料等重要生产物资的运输畅通。',
+        pic1:img5,
+
     }
 ]

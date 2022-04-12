@@ -3,8 +3,7 @@
     :data="state.store"
     style="width: 100%"
     :row-class-name="tableRowClassName"
-    border
-  >
+    border>
     <el-table-column prop="courseName" label="课程名" align="center"/>
     <el-table-column prop="core" label="分数" width="80" align="center"/>
     <el-table-column prop="isMakeUp" label="区间" align="center" :formatter="typeMakeUp" width="120">
@@ -12,7 +11,6 @@
             {{scope.isMakeUp}}
         </template> -->
     </el-table-column>
-    
   </el-table>
 </template>
 
@@ -30,7 +28,6 @@ onBeforeMount(()=>{
         }
     })
     console.error(state.store);
-    
 })
 const typeMakeUp = (row:any)=>{
     // console.log('row',row);

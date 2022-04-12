@@ -40,8 +40,8 @@ const onSubmit = () => {
                 <el-input v-model="state.form.desc" type="textarea" />
             </el-form-item>
             <el-form-item>
-                <el-button type="primary" @click="onSubmit">Create</el-button>
-                <el-button>Cancel</el-button>
+                <el-button type="primary" @click="onSubmit">提交</el-button>
+                <el-button>取消</el-button>
             </el-form-item>
         </el-form>
     </div>

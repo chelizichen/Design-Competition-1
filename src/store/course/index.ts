@@ -48,5 +48,21 @@ export const courseStore:courseType[] = [
         isChoose:true,
         isMakeUp:false,
     },
+    {
+        courseName:'高等数学',
+        courseId:'005',
+        core:59,
+        studentId:'202110137509',
+        isChoose:true,
+        isMakeUp:true,
+    },
+    {
+        courseName:'大学英语',
+        courseId:'006',
+        core:70,
+        studentId:'202110137509',
+        isChoose:true,
+        isMakeUp:true,
+    }
 
 ]
