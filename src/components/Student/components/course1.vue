@@ -11,7 +11,9 @@
 </template>
 <script setup lang="ts">
 import { onBeforeMount, onMounted, reactive, ref } from '@vue/runtime-core'
+
 import {courseStore,courseType} from '../../../store/course/index'
+
 const state = reactive({
     store:[] as courseType[]
 })

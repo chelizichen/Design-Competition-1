@@ -13,6 +13,7 @@
     </div>
 </template>
 <script setup lang="ts">
+import { ElMessage, ElMessageBox } from 'element-plus'
 import { ref, onMounted } from 'vue';
 import { onBeforeMount, reactive } from 'vue-demi'
 import {courseStore,courseType} from '../../../store/course/index'
@@ -20,26 +21,46 @@ const state = reactive({
     store:[] as courseType[]
 })
 const submit=(id:number)=>{
-    console.log(id);
-    let newStore = [] as any
-    courseStore.forEach(el => {
-        if( el.courseId === String(id) && el.studentId == localStorage.getItem("id"))
-        {
-            console.log(el);
+    ElMessageBox.confirm(
+    '是否申请补考?',
+    'Warning',
+    {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning',
+    }
+  )
+    .then(() => {
+        let newStore = [] as any
+        courseStore.forEach(el => {
+            if( el.courseId === String(id) && el.studentId == localStorage.getItem("id"))
+            {
+                console.log(el);
 
-            el.isMakeUp = true
-        }
-    });
-    courseStore.forEach((el)=>{
-        if(el.studentId == localStorage.getItem("id"))
-        {
-            newStore.push(el) 
-        }
-    });
-    state.store = []
-    state.store = newStore
+                el.isMakeUp = true
+            }
+        });
+        courseStore.forEach((el)=>{
+            if(el.studentId == localStorage.getItem("id"))
+            {
+                newStore.push(el) 
+            }
+        });
+        state.store = []
+        state.store = newStore
+        console.log(courseStore);
+      ElMessage({
+        type: 'success',
+        message: '申请成功',
+      })
+    })
+    .catch(() => {
+      ElMessage({
+        type: 'error',
+        message: '申请失败',
+      })
+    })
 
-    console.log(courseStore);
     
 }
 onBeforeMount(()=>{
