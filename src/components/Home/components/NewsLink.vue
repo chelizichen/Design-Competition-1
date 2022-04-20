@@ -9,11 +9,12 @@ import { onMounted } from "@vue/runtime-core";
     </div>
     <div class="newsbg">
         <router-link to="/news/1" class="newsLink">校友会2022中国大学一流专业排名发布 我校跻身中国大学一流专业排名（应用型）50强</router-link>
-        <router-link to="/news/2" class="newsLink">新闻</router-link>
-        <router-link to="/news/3" class="newsLink">新闻</router-link>
-        <router-link to="/news/4" class="newsLink">新闻</router-link>
-        <router-link to="/news/5" class="newsLink">新闻</router-link>
-        <router-link to="/news/6" class="newsLink">新闻</router-link>
+        <router-link to="/news/2" class="newsLink">新闻观察：疫情下运输物流如何保畅通</router-link>
+        <router-link to="/news/3" class="newsLink">天津市宝坻区新冠肺炎疫情防控工作指挥部向我校致感谢信</router-link>
+        <router-link to="/news/4" class="newsLink">我校学生团队在中国国际“互联网+”大学生创新创业大赛中获奖</router-link>
+        <router-link to="/news/5" class="newsLink">《湖北电视台》教育频道专题报道我校“青马晨曦”志愿队爱心支教项目</router-link>
+        <router-link to="/news/6" class="newsLink">【教坛新秀】邵靖婷：学生心中的“暖阳姐姐</router-link>
+        
         <router-view/>
     </div>
 </div>
@@ -32,9 +33,10 @@ import { onMounted } from "@vue/runtime-core";
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 20px;
+        padding: 10px 20px;
         margin-top: 10px;
-        border-bottom:3px solid rgb(116, 100, 100)
+        border-bottom:3px solid rgb(116, 100, 100);
+        
     }
     .activeLink
     {

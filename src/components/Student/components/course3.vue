@@ -27,8 +27,8 @@ const submit=(id:number)=>{
     '是否申请选修?',
     'Warning',
     {
-      confirmButtonText: 'OK',
-      cancelButtonText: 'Cancel',
+      confirmButtonText: '申请',
+      cancelButtonText: '取消',
       type: 'warning',
     }
   )

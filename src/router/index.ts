@@ -30,7 +30,7 @@ const routes= [
         children:[
             {
                 path:'/student/signin1',
-                component:SignIn1
+                component:SignIn1,
             },
             {
                 path:'/student/signin2',
@@ -72,5 +72,12 @@ const router = createRouter({
     routes,
     history:createWebHistory()
     // history:createWebHistory(process.env.BASE_URL),
+})
+router.beforeEach((to,from,next)=>{
+    // 到哪里去
+    console.log('到哪里去',to);
+    // 从哪里来
+    console.log('从哪里来',from);
+    next()
 })
 export default router

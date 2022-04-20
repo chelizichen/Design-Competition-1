@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router';
 import { studentStore } from '../../store/student';
 import StutendBar from './components/navLink.vue'
 import Footer from '../Home/components/footer.vue'
+import Slot from './components/slot.vue'
 let router = useRouter()
 onMounted(()=>{
     console.log(localStorage.getItem("id"));
@@ -36,6 +37,7 @@ provide('studentItem',studentItem)
 <template>
     <div class="outBox">
         <StutendBar class="student"/>
+        <Slot/>
         <Footer/>
     </div>
 </template>
