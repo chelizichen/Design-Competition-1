@@ -1,9 +1,55 @@
 <script setup lang="ts">
 import '@element-plus/icons-vue'
+import { ElMessage, ElMessageBox } from 'element-plus';
 import { inject } from "vue";
+import { onBeforeRouteLeave } from 'vue-router';
 
 let studentItem = inject("studentItem")
-console.log('studentItem',studentItem);
+// console.log('studentItem',studentItem);
+const isToLogin =(next:Function)=>
+{
+    ElMessageBox.confirm(
+    '是否注销登录，此行为将返回登陆页?',
+    'Warning',
+    {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning',
+    }
+  )
+    .then(() => {
+      ElMessage({
+        type: 'success',
+        message: '注销登录成功',
+      })
+      next()
+    })
+    .catch(() => {
+      ElMessage({
+        type: 'info',
+        message: '您已取消',
+      })
+    })
+}
+onBeforeRouteLeave((to,from,next)=>{
+    console.log('to',to);
+    console.log('from',from);
+    if(localStorage.getItem('id'))
+    {
+        if(to.path === '/login')
+        {
+            isToLogin(next)
+        }
+        else
+        {
+            next()
+        }
+    }
+    else
+    {
+        next()
+    }
+})
 </script>
 <template>
 <!-- a 标签会刷新页面  -->
@@ -40,6 +86,22 @@ console.log('studentItem',studentItem);
             <div class="inBox">
                 <el-icon class="inIcon"><upload /></el-icon>
                 <router-link to="/student/course3" class="defaultClass">选修课程</router-link>
+            </div>
+            <div class="inBox">
+                <el-icon class="inIcon"><list /></el-icon>
+                <router-link to="/student/book1" class="defaultClass">查看图书</router-link>
+            </div>
+            <div class="inBox">
+                <el-icon class="inIcon"><star /></el-icon>
+                <router-link to="/student/book2" class="defaultClass">预定图书</router-link>
+            </div>
+            <div class="inBox">
+                <el-icon class="inIcon"><place /></el-icon>
+                <router-link to="/student/book3" class="defaultClass">归还图书</router-link>
+            </div>
+            <div class="inBox">
+                <el-icon class="inIcon"><Help /></el-icon>
+                <router-link to="/login" class="defaultClass">注销登录</router-link>
             </div>
         </div>
     </div>

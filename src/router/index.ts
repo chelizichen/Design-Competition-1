@@ -1,4 +1,4 @@
-import {createRouter,createWebHistory, RouteComponent, RouteParams} from 'vue-router'
+import {createRouter,createWebHistory, RouteComponent, RouteParams, RouteRecordRaw, RouterOptions} from 'vue-router'
 import Home from '../components/Home/index.vue'
 import Student from '../components/Student/index.vue'
 import Mine from '../components/mine/index.vue'
@@ -7,14 +7,14 @@ import News from '../components/Home/components/NewsComponent.vue'
 import SignIn1 from '../components/Student/components/singin1.vue'
 import SignIn2 from '../components/Student/components/singin2.vue'
 import SignIn3 from '../components/Student/components/singin3.vue'
-const routes= [
+const routes:RouteRecordRaw[] = [
     {
         path:'/',
         redirect:"/home"
     },
     {
         path:'/login',
-        component:Login
+        component:Login,
     },
     {
         path:'/home',
@@ -60,6 +60,19 @@ const routes= [
                 path:'/student/course3',
                 component:()=>import ("../components/Student/components/course3.vue")
             },
+            {
+                path:'/student/book1',
+                component:()=>import ("../components/Student/components/book1.vue")
+            },
+            {
+                path:'/student/book2',
+                component:()=>import ("../components/Student/components/book2.vue")
+            },
+            {
+                path:'/student/book3',
+                component:()=>import ("../components/Student/components/book3.vue")
+            },
+
         ]
     },
     {

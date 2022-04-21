@@ -4,6 +4,9 @@ import {studentStore} from '../store/student/index'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import type { Action } from 'element-plus'
 import { useRouter } from 'vue-router'
+onMounted(()=>{
+    localStorage.clear()
+})
 const state = reactive({
     studentId:'',
     name:'',

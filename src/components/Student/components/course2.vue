@@ -60,9 +60,8 @@ const submit=(id:number)=>{
         message: '申请失败',
       })
     })
-
-    
 }
+
 onBeforeMount(()=>{
     courseStore.forEach((el)=>{
         if(el.studentId == localStorage.getItem("id"))

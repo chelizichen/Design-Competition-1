@@ -69,6 +69,34 @@ const choose7 = ()=>{
     clearTimeout(cleartimeVal)
   },1000) 
 }
+
+const chooseVal8 = ref<boolean>(false)
+const choose8 = ()=>{
+  chooseVal8.value = true
+  let cleartimeVal = setTimeout(()=>{
+    chooseVal8.value = false
+    clearTimeout(cleartimeVal)
+  },1000) 
+}
+
+const chooseVal9 = ref<boolean>(false)
+const choose9 = ()=>{
+  chooseVal9.value = true
+  let cleartimeVal = setTimeout(()=>{
+    chooseVal9.value = false
+    clearTimeout(cleartimeVal)
+  },1000) 
+}
+
+const chooseVal10 = ref<boolean>(false)
+const choose10 = ()=>{
+  chooseVal10.value = true
+  let cleartimeVal = setTimeout(()=>{
+    chooseVal10.value = false
+    clearTimeout(cleartimeVal)
+  },1000) 
+}
+
 </script>
 <template>
   <div class="demo-collapse">
@@ -86,6 +114,12 @@ const choose7 = ()=>{
           <router-link to="/student/signin1" class="link" @click="choose5" v-loading="chooseVal5">班级签到</router-link>
           <router-link to="/student/signin2" class="link" @click="choose6" v-loading="chooseVal6">寝室签到</router-link>
           <router-link to="/student/signin3" class="link" @click="choose7" v-loading="chooseVal7">定位签到</router-link>
+      </el-collapse-item>
+
+      <el-collapse-item title="图书借阅" name="4">
+          <router-link to="/student/book1" class="link" @click="choose8" v-loading="chooseVal8">查看图书</router-link>
+          <router-link to="/student/book2" class="link" @click="choose9" v-loading="chooseVal9">预定图书</router-link>
+          <router-link to="/student/book3" class="link" @click="choose10" v-loading="chooseVal10">归还图书</router-link>
       </el-collapse-item>
     </el-collapse>
     <router-view/>
