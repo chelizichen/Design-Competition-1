@@ -72,6 +72,14 @@ const routes:RouteRecordRaw[] = [
                 path:'/student/book3',
                 component:()=>import ("../components/Student/components/book3.vue")
             },
+            {
+                path:'/student/news1',
+                component:()=>import ("../components/Student/components/news1.vue")
+            },
+            {
+                path:'/student/news2',
+                component:()=>import ("../components/Student/components/news2.vue")
+            },
 
         ]
     },

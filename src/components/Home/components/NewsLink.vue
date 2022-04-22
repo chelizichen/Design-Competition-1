@@ -5,7 +5,7 @@ import { onMounted } from "@vue/runtime-core";
 <div class="outBg">
     <div class="more">
         <div class="new">学院新闻</div>
-        <a href="http://www.city.wust.edu.cn/syxw/list/24.aspx" target="_self"><el-icon><arrow-right /></el-icon></a>
+        <a href="http://www.city.wust.edu.cn/xww/index.aspx" target="_self"><el-icon><arrow-right /></el-icon></a>
     </div>
     <div class="newsbg">
         <router-link to="/news/1" class="newsLink">校友会2022中国大学一流专业排名发布 我校跻身中国大学一流专业排名（应用型）50强</router-link>

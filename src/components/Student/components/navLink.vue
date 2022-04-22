@@ -1,6 +1,14 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { onBeforeMount, reactive, ref } from 'vue'
+import { newsStore,news} from '../../../news/index'
 
+onBeforeMount(()=>{
+  state.store = newsStore
+})
+
+const state = reactive({
+  store:[] as news[]
+})
 const activeNames = ref(['0'])
 const handleChange = (val: string[]) => {
   console.log(val)
@@ -69,7 +77,6 @@ const choose7 = ()=>{
     clearTimeout(cleartimeVal)
   },1000) 
 }
-
 const chooseVal8 = ref<boolean>(false)
 const choose8 = ()=>{
   chooseVal8.value = true
@@ -78,7 +85,6 @@ const choose8 = ()=>{
     clearTimeout(cleartimeVal)
   },1000) 
 }
-
 const chooseVal9 = ref<boolean>(false)
 const choose9 = ()=>{
   chooseVal9.value = true
@@ -87,12 +93,27 @@ const choose9 = ()=>{
     clearTimeout(cleartimeVal)
   },1000) 
 }
-
 const chooseVal10 = ref<boolean>(false)
 const choose10 = ()=>{
   chooseVal10.value = true
   let cleartimeVal = setTimeout(()=>{
     chooseVal10.value = false
+    clearTimeout(cleartimeVal)
+  },1000) 
+}
+const chooseVal11 = ref<boolean>(false)
+const choose11 = ()=>{
+  chooseVal11.value = true
+  let cleartimeVal = setTimeout(()=>{
+    chooseVal11.value = false
+    clearTimeout(cleartimeVal)
+  },1000) 
+}
+const chooseVal12 = ref<boolean>(false)
+const choose12 = ()=>{
+  chooseVal12.value = true
+  let cleartimeVal = setTimeout(()=>{
+    chooseVal12.value = false
     clearTimeout(cleartimeVal)
   },1000) 
 }
@@ -120,6 +141,11 @@ const choose10 = ()=>{
           <router-link to="/student/book1" class="link" @click="choose8" v-loading="chooseVal8">查看图书</router-link>
           <router-link to="/student/book2" class="link" @click="choose9" v-loading="chooseVal9">预定图书</router-link>
           <router-link to="/student/book3" class="link" @click="choose10" v-loading="chooseVal10">归还图书</router-link>
+      </el-collapse-item>
+      <el-collapse-item title="查阅新闻" name="5">
+          <router-link to="/student/news1" class="link" @click="choose11" v-loading="chooseVal11">所有新闻</router-link>
+          <router-link to="/student/news2" class="link" @click="choose12" v-loading="chooseVal12">按需查找</router-link>
+          <!-- <router-link v-for="item in state.store" :key="item.index" :to="'/news/'+item.index" class="link" @click="choose8" v-loading="chooseVal8">{{item.title}}</router-link> -->
       </el-collapse-item>
     </el-collapse>
     <router-view/>

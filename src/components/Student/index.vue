@@ -37,7 +37,7 @@ provide('studentItem',studentItem)
 <template>
     <div class="outBox">
         <StutendBar class="student"/>
-        <Slot/>
+        <!-- <Slot/> -->
         <Footer/>
     </div>
 </template>
@@ -50,6 +50,7 @@ provide('studentItem',studentItem)
     {
         width: 100%;
         height: 1000px;
+        overflow: scroll;
         /* margin-bottom: 50px; */
     }
 </style>

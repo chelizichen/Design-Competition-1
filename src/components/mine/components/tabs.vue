@@ -6,6 +6,7 @@ import Location from './tabs/location.vue'
 import SignIn from './tabs/signIn.vue'
 import Vacate from './tabs/vacate.vue'
 import MakeUp from './tabs/makeup.vue'
+import Book from './tabs/book.vue'
 let studentItem = inject("studentItem")
 let location = reactive({
     where:{}
@@ -27,7 +28,8 @@ console.log('studentItem',studentItem);
 </script>
 <template>
     <el-tabs type="border-card">
-    <el-tab-pane label="用户信息"><User :user="studentItem"/></el-tab-pane>
+    <el-tab-pane label="借阅记录"><Book/></el-tab-pane>
+    <!-- <el-tab-pane label="用户信息"><User :user="studentItem"/></el-tab-pane> -->
     <!-- <el-tab-pane label="所在位置"><Location /></el-tab-pane> -->
     <el-tab-pane label="签到记录"><SignIn/></el-tab-pane>
     <el-tab-pane label="请假记录"><Vacate/></el-tab-pane>

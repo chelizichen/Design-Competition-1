@@ -4,16 +4,16 @@
             <div v-if="item.index === state.index">
                 <div class="title">{{item.title}}</div>
                 <div>{{item.author}}</div>
-                <img :src="item.pic1" alt="" style="width:100%;height:100%">
+                <img :src="item.pic1" alt="" style="width:100%;height:100%" v-if="item.pic1">
                 <div class="content">
                     <div>{{item.content1}}</div>
                     <div>{{item.content2}}</div>
-                    <img :src="item.pic2" alt="" style="width:100%;height:100%">
+                    <img :src="item.pic2" alt="" style="width:100%;height:100%" v-if="item.pic2">
 
                     <div>{{item.content3}}</div>
-                    <img :src="item.pic3" alt="" style="width:100%;height:100%">
+                    <img :src="item.pic3" alt="" style="width:100%;height:100%" v-if="item.pic3">
                     <div>{{item.content4}}</div>
-                    <img :src="item.pic4" alt="" style="width:100%;height:100%">
+                    <img :src="item.pic4" alt="" style="width:100%;height:100%" v-if="item.pic4">
                     <div>{{item.content5}}</div>
                 </div>
             </div>
