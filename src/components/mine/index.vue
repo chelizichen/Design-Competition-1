@@ -3,6 +3,12 @@
         <Head/>
         <Func/>
         <Tabs/>
+        <!-- <User/> -->
+        <div class="outBox">
+            <div class="inBox">
+            <User :user="studentItem"/>
+            </div>
+        </div>
         <Footer/>
         <!-- <Location/> -->
     </div>
@@ -17,6 +23,7 @@ import Func from './components/func.vue'
 import Tabs from './components/tabs.vue'
 import Location from './components/tabs/location.vue'
 import Footer from '../../components/Home/components/footer.vue'
+import User from './components/tabs/user.vue'
 import { provide } from 'vue';
 import { studentStore } from '../../store/student';
 let router = useRouter()
@@ -51,5 +58,18 @@ provide('studentItem',studentItem)
     .content
     {
         margin-bottom: 50px;
+    }
+    .inBox
+    {
+        background-color: #fdfdfd;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+    }
+    .outBox
+    {
+        background-color: rgb(236, 236, 236);
+        padding: 10px;
+        border-radius: 5px;
     }
 </style>

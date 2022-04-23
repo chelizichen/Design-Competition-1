@@ -6,10 +6,12 @@
     border>
     <el-table-column prop="bookName" label="书名" align="center"/>
     <el-table-column prop="author" label="作者" width="80" align="center"/>
-    <el-table-column prop="isMakeUp" label="借出情况" align="center" :formatter="typeMakeUp" width="120">
+    <el-table-column prop="isBook" label="预定情况" align="center" :formatter="getBookType" width="100">
         <!-- <template slot-scope="scope">
             {{scope.isMakeUp}}
         </template> -->
+    </el-table-column>
+    <el-table-column prop="isBorrow" label="借出情况" align="center" :formatter="getBorrowType" width="100">
     </el-table-column>
   </el-table>
 </template>
@@ -22,14 +24,37 @@ const state = reactive({
 })
 onBeforeMount(()=>{
     bookStore.forEach((el)=>{
-        state.store.push(el)
+        if(el.isBook === true || el.isBorrow === true)
+        {
+            state.store.push(el)
+        }
     })
-    console.error(state.store);
+    // console.error(state.store);
 })
-const typeMakeUp = (row:any)=>{
-    if(row.core == 0)
+const getBookType = (row:bookType)=>{
+    console.log(row);
+    if(row.isBook === true || row.isBorrow === true)
     {
-      return '已选修'
+        return '已预定'
+    }
+    else
+    {
+        return '预定'
+    }
+    // if(row.core == 0)
+    // {
+    //   return '已选修'
+    // }
+}
+const getBorrowType = (row:bookType)=>{
+    console.log(row);
+    if(row.isBorrow === true)
+    {
+      return '已借出'
+    }
+    else
+    {
+        return '未借出'
     }
 }
 const tableRowClassName = ({
@@ -39,17 +64,14 @@ const tableRowClassName = ({
   row: bookType
   rowIndex: number
 }) => {
-    console.log('row',row);
-    console.log('rowIndex',rowIndex);
+    // console.log('row',row);
+    // console.log('rowIndex',rowIndex);
     
-//   if (row.core<=60 && row.isChoose == true && row.isMakeUp == true) {
-//     return 'warning-row'
-//   } else if (row.core>60) {
-//     return 'success-row'
-//   }else if (row.core<=60 && row.isChoose == true && row.isMakeUp == false) {
-//     return 'error-row'
-//   }
-  return ''
+  if (row.isBook === true) {
+    return 'success-row'
+  }else{
+    return 'error-row'
+  }
 }
 </script>
 

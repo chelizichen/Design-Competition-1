@@ -144,7 +144,7 @@ const choose12 = ()=>{
       </el-collapse-item>
       <el-collapse-item title="查阅新闻" name="5">
           <router-link to="/student/news1" class="link" @click="choose11" v-loading="chooseVal11">所有新闻</router-link>
-          <router-link to="/student/news2" class="link" @click="choose12" v-loading="chooseVal12">按需查找</router-link>
+          <router-link to="/student/news2" class="link" @click="choose12" v-loading="chooseVal12">搜索新闻</router-link>
           <!-- <router-link v-for="item in state.store" :key="item.index" :to="'/news/'+item.index" class="link" @click="choose8" v-loading="chooseVal8">{{item.title}}</router-link> -->
       </el-collapse-item>
     </el-collapse>
