@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { ElMessage } from 'element-plus'
 import { reactive } from 'vue'
 import { vacateStore, vacateType } from '../../../store/vacate/index'
 // do not use same name with ref
@@ -19,6 +20,13 @@ const onSubmit = () => {
     }
     console.log(newVacateItem);
     vacateStore.push(newVacateItem)
+    openSuccess()
+}
+const openSuccess = () => {
+      ElMessage({
+        type: 'success',
+        message: `签到成功`,
+      })
 }
 
 </script>
@@ -31,10 +39,8 @@ const onSubmit = () => {
             <el-input v-model="state.form.name" />
             </el-form-item>
             <el-form-item label="目的地">
-                <el-select v-model="state.form.type" placeholder="请选择请假前往的地方">
-                    <el-option label="出校" value="0" />
-                    <el-option label="不出校" value="1" />
-                </el-select>
+            <el-input v-model="state.form.type" />
+
             </el-form-item>
                 <el-form-item label="请假原因">
                 <el-input v-model="state.form.desc" type="textarea" />

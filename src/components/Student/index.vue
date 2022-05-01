@@ -37,11 +37,11 @@ provide('studentItem',studentItem)
 <template>
     <div class="outBox">
         <StutendBar class="student"/>
-        <Slot>
+        <!-- <Slot>
             <template #head>头部</template>
             <template #body>身体</template>
             <template #foot>底部</template>
-        </Slot>
+        </Slot> -->
         <Footer/>
     </div>
 </template>

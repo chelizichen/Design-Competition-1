@@ -19,19 +19,19 @@ export interface vacateType{
 }
 export const vacateStore:vacateType[] = [
     {
-        progress:'0',
+        progress:'3',
         name:'彭城',
         type:'0',
         desc:''
     },
     {
-        progress:'1',
+        progress:'3',
         name:'彭城',
         type:'1',
         desc:''
     },
     {
-        progress:'2',
+        progress:'0',
         name:'彭城',
         type:'0',
         desc:''

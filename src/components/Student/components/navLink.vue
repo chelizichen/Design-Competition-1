@@ -117,6 +117,14 @@ const choose12 = ()=>{
     clearTimeout(cleartimeVal)
   },1000) 
 }
+const chooseVal13 = ref<boolean>(false)
+const choose13 = ()=>{
+  chooseVal13.value = true
+  let cleartimeVal = setTimeout(()=>{
+    chooseVal13.value = false
+    clearTimeout(cleartimeVal)
+  },1000) 
+}
 
 </script>
 <template>
@@ -135,6 +143,7 @@ const choose12 = ()=>{
           <router-link to="/student/signin1" class="link" @click="choose5" v-loading="chooseVal5">班级签到</router-link>
           <router-link to="/student/signin2" class="link" @click="choose6" v-loading="chooseVal6">寝室签到</router-link>
           <router-link to="/student/signin3" class="link" @click="choose7" v-loading="chooseVal7">定位签到</router-link>
+          <router-link to="/student/signin4" class="link" @click="choose13" v-loading="chooseVal13">体温上报</router-link>
       </el-collapse-item>
 
       <el-collapse-item title="图书借阅" name="4">

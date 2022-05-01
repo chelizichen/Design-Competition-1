@@ -70,11 +70,11 @@ const tableRowClassName = ({
     console.log('row',row);
     console.log('rowIndex',rowIndex);
     
-  if (row.core<=60 && row.isChoose == true && row.isMakeUp == true) {
+  if (row.core<60 && row.isChoose == true && row.isMakeUp == true) {
     return 'warning-row'
-  } else if (row.core>60) {
+  } else if (row.core>=60) {
     return 'success-row'
-  }else if (row.core<=60 && row.isChoose == true && row.isMakeUp == false) {
+  }else if (row.core<60 && row.isChoose == true && row.isMakeUp == false) {
     return 'error-row'
   }
   return ''

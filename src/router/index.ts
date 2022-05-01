@@ -80,6 +80,10 @@ const routes:RouteRecordRaw[] = [
                 path:'/student/news2',
                 component:()=>import ("../components/Student/components/news2.vue")
             },
+            {
+                path:'/student/signin4',
+                component:()=>import ("../components/Student/components/singin4.vue")
+            },
 
         ]
     },

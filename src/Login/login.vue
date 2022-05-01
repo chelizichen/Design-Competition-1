@@ -48,15 +48,30 @@ let loginIn =() =>{
 </script>
 <template>
 <div class="bg">
+    <div class="title">今日城院</div>
     <div class="login">
         <input type="text" v-model="state.name" class="inp" placeholder="姓名">
-        <input type="text" v-model="state.studentId" class="inp" placeholder="学号">
+        <input type="password" v-model="state.studentId" class="inp" placeholder="学号">
         <button @click="loginIn()" class="btn">登陆</button>
     </div>
 </div>
 </template>
 
 <style scoped>
+.title
+{
+    position: relative;
+    top: 20%;
+    /* left: 35%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: rgb(238, 238, 238);
+    font-weight: 400;
+    box-shadow: 10px 10px 10px rgb(152, 202, 174);
+}
+
     .bg
     {
         background: url('~@/../src/assets/wallpaper.jpg') no-repeat;
